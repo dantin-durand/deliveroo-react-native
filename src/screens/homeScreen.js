@@ -1,19 +1,36 @@
 import React from 'react';
 
-import {SafeAreaView, StyleSheet, View} from 'react-native';
+import {SafeAreaView, ScrollView, StyleSheet, View} from 'react-native';
 
 import {CategoriesCarousel} from '../components/organisms/CategoriesCarousel';
 import {OffersCarousel} from '../components/organisms/OffersCarousel';
+import {RestaurantCarousel} from '../components/organisms/RestaurantCarousel';
 
 const Home = () => {
   return (
-    <SafeAreaView>
-      <View style={styles.sectionCategories}>
-        <CategoriesCarousel />
-      </View>
-      <View style={styles.sectionOffers}>
-        <OffersCarousel />
-      </View>
+    <SafeAreaView
+      contentInsetAdjustmentBehavior="automatic"
+      showsHorizontalScrollIndicator={false}>
+      <ScrollView>
+        <View style={styles.sectionCategories}>
+          <CategoriesCarousel />
+        </View>
+        <View style={styles.sectionOffers}>
+          <OffersCarousel />
+        </View>
+        <View style={styles.sectionOffers}>
+          <RestaurantCarousel />
+        </View>
+        <View style={styles.sectionOffers}>
+          <RestaurantCarousel />
+        </View>
+        <View style={styles.sectionOffers}>
+          <RestaurantCarousel />
+        </View>
+        <View style={styles.sectionOffers}>
+          <RestaurantCarousel />
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
