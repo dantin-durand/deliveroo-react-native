@@ -7,7 +7,7 @@ export function DefaultLayout({children}) {
   const [offset, setOffset] = useState(0);
 
   return (
-    <React.Fragment>
+    <View>
       <View
         style={{
           flexDirection: 'row',
@@ -20,7 +20,10 @@ export function DefaultLayout({children}) {
           height: 100,
           position: 'absolute',
         }}>
-        <SearchBar style={{position: 'absolute', bottom: 10}} />
+        <SearchBar
+          style={{position: 'absolute', bottom: 10}}
+          placeholder="Plats, restaurants ou types de cuisine"
+        />
       </View>
       <ScrollView
         scrollEventThrottle={16}
@@ -28,9 +31,9 @@ export function DefaultLayout({children}) {
           setOffset(e.nativeEvent.contentOffset.y);
         }}>
         <HeaderAdress offset={offset} />
-        {children}
+        <View style={{backgroundColor: '#fff'}}>{children}</View>
       </ScrollView>
-    </React.Fragment>
+    </View>
   );
 }
 

@@ -64,7 +64,7 @@ export function HeaderAdress({offset}) {
           transform: [{translateY: -20}],
           zIndex: 1,
         }}>
-        <SearchBar />
+        <SearchBar placeholder="Plats, restaurants ou types de cuisine" />
       </View>
     </React.Fragment>
   );
