@@ -1,13 +1,34 @@
-import React, {useState} from 'react';
-import {ScrollView, TextInput, View, StyleSheet} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
+import LottieView from 'lottie-react-native';
+
+import {
+  ScrollView,
+  TextInput,
+  View,
+  StyleSheet,
+  SafeAreaView,
+} from 'react-native';
 import {HeaderAdress} from '../components/organisms/HeaderAdress';
 import {SearchBar} from '../components/molecules/SearchBar';
 
 export function DefaultLayout({children}) {
   const [offset, setOffset] = useState(0);
-
+  const [openAppStatus, setOpenAppStatus] = useState(true);
+  const openAppAnimation = useRef(null);
+  useEffect(() => {
+    openAppAnimation.current.play(0, 44);
+  }, []);
   return (
     <View>
+      {openAppStatus ? (
+        <LottieView
+          source={require('../assets/animations/openapp.json')}
+          loop={false}
+          style={styles.openanim}
+          ref={openAppAnimation}
+          onAnimationFinish={() => setOpenAppStatus(false)}
+        />
+      ) : null}
       <View
         style={{
           flexDirection: 'row',
@@ -46,5 +67,12 @@ const styles = StyleSheet.create({
     transform: [{translateY: -20}],
     paddingHorizontal: 20,
     position: 'absolute',
+  },
+  openanim: {
+    position: 'absolute',
+    height: '100%',
+    width: '100%',
+    zIndex: 2,
+    transform: [{scale: 2}],
   },
 });

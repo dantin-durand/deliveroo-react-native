@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import LottieView from 'lottie-react-native';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Paragraph} from '../atoms/Texts/Paragraph';
 import {SubTitle} from '../atoms/Texts/SubTitle';
