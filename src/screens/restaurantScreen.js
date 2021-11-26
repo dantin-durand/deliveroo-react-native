@@ -1,29 +1,41 @@
 import React from 'react';
 
-import {StyleSheet, View} from 'react-native';
+import {Button, StyleSheet, Text, View, ImageBackground} from 'react-native';
 
 import {DefaultLayout} from '../layouts/default';
 import {SubTitle} from '../components/atoms/Texts/SubTitle';
-import {Link} from 'react-router-native';
+Restaurant.sharedElements = (route, otherRoute, showing) => {
+  console.log('route -> ', route);
+  const {id} = route.params;
+  return [`item.${id}`];
+};
 
-const Restaurant = () => {
+function Restaurant(props) {
+  console.log('test');
+  const {item} = props.route.params;
   return (
     <DefaultLayout>
       <View style={styles.sectionCategories}>
-        <Link to="/">
-          <SubTitle>- retour</SubTitle>
-        </Link>
+        <ImageBackground
+          source={{
+            uri: item.image,
+          }}
+          resizeMode="cover"
+          style={{height: 200, width: '100%'}}></ImageBackground>
+        <View style={styles.container}>
+          <SubTitle>{item.name}</SubTitle>
+        </View>
       </View>
     </DefaultLayout>
   );
-};
+}
 
 const styles = StyleSheet.create({
-  sectionCategories: {
-    marginVertical: 10,
-  },
   sectionOffers: {
     marginVertical: 10,
+  },
+  container: {
+    padding: 10,
   },
 });
 

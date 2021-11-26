@@ -1,10 +1,10 @@
 import React from 'react';
-import {Text, StyleSheet} from 'react-native';
+import {Text, StyleSheet, TouchableOpacity} from 'react-native';
 import Card from './Card';
 
-export function SquareCard({children, image, isFirst}) {
+export function SquareCard({children, image, isFirst, path = ''}) {
   return (
-    <Card image={image} isFirst={isFirst}>
+    <Card image={image} isFirst={isFirst} path={path}>
       <Text style={styles.title} numberOfLines={1} ellipsizeMode="tail">
         {children}
       </Text>

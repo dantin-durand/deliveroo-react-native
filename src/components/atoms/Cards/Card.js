@@ -1,23 +1,30 @@
 import React from 'react';
 
-import {StyleSheet, ImageBackground, View} from 'react-native';
+import {
+  StyleSheet,
+  ImageBackground,
+  View,
+  TouchableOpacity,
+} from 'react-native';
+import {SharedElement} from 'react-navigation-shared-element';
+import {useNavigation} from '@react-navigation/native';
 
 const Card = ({
   height = 90,
   width = 90,
   image = '',
   isFirst = false,
-
+  path = '',
   children,
   ...props
 }) => {
   return (
     <View
+      {...props}
       style={[
         styles.card,
         {height: height, width: width, marginLeft: isFirst ? 10 : 0},
-      ]}
-      {...props}>
+      ]}>
       <ImageBackground
         source={{
           uri: image,

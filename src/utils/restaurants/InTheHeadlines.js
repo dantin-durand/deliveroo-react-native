@@ -1,5 +1,6 @@
 export const InTheHeadlines = [
   {
+    id: 1,
     name: 'Brasserie Chez Polo',
     image:
       'https://rs-menus-api.roocdn.com/images/34293124-c53d-4a9d-881e-532623c5fd65/image.jpeg?width=786&height=441&auto=webp&format=jpg&fit=crop&v=',
@@ -15,6 +16,7 @@ export const InTheHeadlines = [
     distance: 3.4,
   },
   {
+    id: 2,
     isRewarded: true,
     name: 'Bel Épi',
     image:
@@ -31,6 +33,7 @@ export const InTheHeadlines = [
     distance: 2.4,
   },
   {
+    id: 3,
     name: 'Brasserie Chez Polo',
     image:
       'https://rs-menus-api.roocdn.com/images/34293124-c53d-4a9d-881e-532623c5fd65/image.jpeg?width=786&height=441&auto=webp&format=jpg&fit=crop&v=',

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {StyleSheet, View} from 'react-native';
+import {Button, StyleSheet, Text, View} from 'react-native';
 
 import {CategoriesCarousel} from '../components/organisms/CategoriesCarousel';
 import {OffersCarousel} from '../components/organisms/OffersCarousel';
@@ -8,18 +8,26 @@ import {RestaurantCarousel} from '../components/organisms/RestaurantCarousel';
 import {InTheHeadlines} from '../utils/restaurants/InTheHeadlines';
 import {InPromotion} from '../utils/restaurants/InPromotion';
 import {HomeLayout} from '../layouts/home';
-import {SubTitle} from '../components/atoms/Texts/SubTitle';
-import {Link} from 'react-router-native';
-
-const Home = () => {
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import {SharedElement} from 'react-navigation-shared-element';
+const Home = ({navigation}) => {
   return (
     <HomeLayout>
       <View style={styles.sectionCategories}>
         <CategoriesCarousel />
       </View>
-      <Link to="/restaurant">
-        <SubTitle>RESTAURdANT</SubTitle>
-      </Link>
+      {/* <Button
+        title="Go to Details"
+        onPress={() => navigation.navigate('Restaurant')}
+      /> */}
+      <TouchableOpacity
+        onPress={() =>
+          navigation.push('Restaurant', {item: {id: 2, name: 'dantin'}})
+        }>
+        <SharedElement id={'2'}>
+          <Text>test</Text>
+        </SharedElement>
+      </TouchableOpacity>
       <View style={styles.sectionOffers}>
         <OffersCarousel />
       </View>
