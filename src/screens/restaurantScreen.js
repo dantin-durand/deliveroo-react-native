@@ -7,7 +7,6 @@ import {SharedElement} from 'react-navigation-shared-element';
 
 import {SubTitle} from '../components/atoms/Texts/SubTitle';
 Restaurant.sharedElements = (route, otherRoute, showing) => {
-  console.log('route -> ', route);
   const {id} = route.params;
   return [`item.${id}`];
 };
